@@ -1,0 +1,16 @@
+//Reset
+@import url('../css/reset.scss');
+
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import url('../views/components/header.scss');
+@import url('../views/components/utils.scss');
+body{
+    background-color: red;
+}
