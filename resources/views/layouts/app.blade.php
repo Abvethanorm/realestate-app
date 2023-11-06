@@ -20,10 +20,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-0 pb-2">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                   <div class="nav__logo">
+                    CasaNova.
+                   </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,8 +36,14 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
+                    {{-- Navbar middle --}}
+                  <div class="nav__link__container">
+                    <a href="/" class="nav__link nav__link--active">Home</a>
+                    <a href="/sales/sales/sales" class="nav__link nav__link">Listings</a>
+                    <a href="" class="nav__link nav__link">Property</a>
+                    <a href="" class="nav__link nav__link">Pages</a>
+                  </div>
+                    <!-- Right Side Of Navbar --> 
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -74,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>

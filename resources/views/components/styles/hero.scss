@@ -1,0 +1,108 @@
+.hero {
+    display: flex;
+   overflow-y: hidden;
+    overflow-x: auto;
+  
+}
+
+.hero__slider{
+    display: flex;
+    overflow-x: scroll;
+    width: 100vw;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    scroll-snap-type: x mandatory; 
+    
+}
+.hero__image{
+width: 100vw;
+height: 100vh;
+padding: 2rem 0;
+object-fit: cover;
+object-position: center;
+position: relative;
+flex: 0 0 100%;
+white-space: normal;
+scroll-snap-align: start;
+overflow-y: hidden; 
+
+
+}
+
+.hero__title__container{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    color: 	 	#fbf7f5;
+   
+}
+.hero__pretext{
+    font-size: .5rem;
+    font-weight: 600;
+}
+
+.hero__title{
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 20ch;
+    text-shadow: 30px black;
+    letter-spacing: 2.5px;
+
+
+}
+.hero__color__slice{
+    font-size: 4rem;
+    font-weight: 800;
+    width: 10ch;
+    color: 	#25c5df;
+    text-shadow: 30px black;
+}
+
+.hero__info{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    background-color: white;
+    display: flex;
+   
+    gap: .2rem;
+    padding: 5rem;
+    border-top: #8b888e solid 2px ;
+    border-left: #8b888e solid 2px ;
+    
+}
+
+.hero__number{
+    font-size: 2rem;
+    font-weight: 900;
+    padding: .5rem;
+}
+
+.hero__subtitle{
+    font-size: .8rem;
+    font-weight: 400;
+    width: 8ch;
+    padding-top: 1rem;
+    padding-left:.5rem ;
+}
+
+.hero__container{
+    width: 100wh;
+}
+/* Hide the scrollbar */
+::-webkit-scrollbar {
+    width: 0; /* This hides the horizontal scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* This hides the thumb (drag handle) of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* This hides the track (the bar) of the scrollbar */
+  }
+  

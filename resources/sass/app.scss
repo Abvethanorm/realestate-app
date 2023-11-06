@@ -9,8 +9,11 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
-@import url('../views/components/header.scss');
-@import url('../views/components/utils.scss');
-body{
-    background-color: red;
-}
+@import url('../views/components/styles/nav.scss');
+@import url('../views/components/styles/utils.scss');
+@import url('../views/components/styles/hero.scss');
+@import url('../views/pages/styles/listings.scss');
+@import url('../views/auth/styles/login.scss');
+@import url('../views/auth/styles/register.scss');
+@import url('../views/pages/styles/singlelisting.scss');
+

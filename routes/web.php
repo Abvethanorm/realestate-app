@@ -19,22 +19,24 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/{proprty_type}/{listing_type}', function () {
-    return view('welcome');
-});
 Route::get('/listing/{slug}/{id}', function () {
-    return view('welcome');
+    return view('pages.single-listing');
 });
+
+Route::get('/{proprty_type}/{listing_type}/{city}', function () {
+    return view('pages.listings');
+});
+
 //User login
 Route::get('/login', function () {
-    return view('welcome');
+    return view('auth.login');
     //User register
 });Route::get('/register', function () {
-    return view('welcome');
+    return view('auth.register');
 });
 //User saved
 Route::get('/account/saved', function () {
-    return view('welcome');
+    return view('pages.saved-listing');
 });
 //User status
 Route::get('/account/show-status', function () {
