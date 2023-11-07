@@ -44,7 +44,12 @@ Route::get('/account/show-status', function () {
 });
 
 
-
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+    
+});
 
 Auth::routes();
 
