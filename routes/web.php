@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+   
+   
+  
+    Route::prefix('listings')->group(function(){
+         Route::get('/all-listings', [ListingController::class, 'index'])->name('all-listings');
+        
+        Route::get('/{id}/edit-listing', [ListingController::class, 'edit'])->name('edit-listing');
+
+         Route::get('/create-listing', [ListingController::class, 'create'])->name('admin.createlisting');
+
+         Route::post('/', [ListingController::class, 'store'])->name('admin.post');
+
+        
+    });
+    
+
+});
+
+
+
 Route::get('/', function () {
     return view('pages/home');
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/listing/{slug}/{id}', function () {
     return view('pages.single-listing');
 });
@@ -44,20 +68,6 @@ Route::get('/account/show-status', function () {
 });
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-
-    Route::get('/create-listing', function () {
-        return view('admin.createlisting');
-    })->name('admin.createlisting');
-
-    Route::get('/show-all-listings', function () {
-        return view('admin.showall');
-    })->name('admin.showall');
-    
-});
 
 Auth::routes();
 

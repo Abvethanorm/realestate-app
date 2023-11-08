@@ -47,7 +47,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @auth
-                        {{-- favorite icon --}}
+                     
                        
                       
                         @endauth

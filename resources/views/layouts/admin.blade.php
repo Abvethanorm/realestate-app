@@ -2,6 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+ 
+
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -63,7 +65,7 @@
   {{-- <script defer="defer" src="main.js"></script> --}}
   @vite(['resources/sass/app.scss',
    'public/dash/main.js',
-   'public/dash/assets/static',
+   
   'resources/js/app.js'])
 </head>
 
@@ -146,7 +148,7 @@
                 <a class="sidebar-link" href={{route('admin.createlisting')}}>Create Listing</a>
               </li>
               <li>
-                <a class="sidebar-link" href={{route('admin.showall')}}>Show All Listings</a>
+                <a class="sidebar-link" href={{route('all-listings')}}>Show All Listings</a>
               </li>
             </ul>
           </li>

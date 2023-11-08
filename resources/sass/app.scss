@@ -1,19 +1,20 @@
 //Reset
-@import url('../css/reset.scss');
+@import url("../css/reset.scss");
 
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
-@import url('../views/components/styles/nav.scss');
-@import url('../views/components/styles/utils.scss');
-@import url('../views/components/styles/hero.scss');
-@import url('../views/pages/styles/listings.scss');
-@import url('../views/auth/styles/login.scss');
-@import url('../views/auth/styles/register.scss');
-@import url('../views/pages/styles/singlelisting.scss');
-
+@import "bootstrap/scss/bootstrap";
+@import url("../views/components/styles/nav.scss");
+@import url("../views/components/styles/utils.scss");
+@import url("../views/components/styles/hero.scss");
+@import url("../views/pages/styles/listings.scss");
+@import url("../views/auth/styles/login.scss");
+@import url("../views/auth/styles/register.scss");
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
