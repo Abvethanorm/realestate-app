@@ -143,10 +143,10 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="sidebar-link" href="basic-table.html">Create Listing</a>
+                <a class="sidebar-link" href={{route('admin.createlisting')}}>Create Listing</a>
               </li>
               <li>
-                <a class="sidebar-link" href="datatable.html">Show All Listings</a>
+                <a class="sidebar-link" href={{route('admin.showall')}}>Show All Listings</a>
               </li>
             </ul>
           </li>

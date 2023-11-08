@@ -48,6 +48,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/create-listing', function () {
+        return view('admin.createlisting');
+    })->name('admin.createlisting');
+
+    Route::get('/show-all-listings', function () {
+        return view('admin.showall');
+    })->name('admin.showall');
     
 });
 
