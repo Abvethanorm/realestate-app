@@ -2,432 +2,405 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
- 
-
-  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <title>Dashboard</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <style>
-    #loader {
-      transition: all 0.3s ease-in-out;
-      opacity: 1;
-      visibility: visible;
-      position: fixed;
-      height: 100vh;
-      width: 100%;
-      background: #fff;
-      z-index: 90000;
-    }
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    #loader.fadeOut {
-      opacity: 0;
-      visibility: hidden;
-    }
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    .spinner {
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      top: calc(50% - 20px);
-      left: calc(50% - 20px);
-      background-color: #333;
-      border-radius: 100%;
-      -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-      animation: sk-scaleout 1.0s infinite ease-in-out;
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    @-webkit-keyframes sk-scaleout {
-      0% {
-        -webkit-transform: scale(0)
-      }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-      100% {
-        -webkit-transform: scale(1.0);
-        opacity: 0;
-      }
-    }
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+ @vite(['resources/sass/app.scss',
+ "public/NiceAdmin/assets/js/main.js",
+ "public/NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css",
+  "public/NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css",
+  "public/NiceAdmin/assets/vendor/quill/quill.snow.css",
+  "public/NiceAdmin/assets/vendor/quill/quill.bubble.css",
+  "public/NiceAdmin/assets/vendor/remixicon/remixicon.css",
+  "public/NiceAdmin/assets/vendor/simple-datatables/style.css",
+  "public/NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js",
+  "public/NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+  "public/NiceAdmin/assets/vendor/chart.js/chart.umd.js",
+  "public/NiceAdmin/assets/vendor/echarts/echarts.min.js",
+  "public/NiceAdmin/assets/vendor/quill/quill.min.js",
+  "public/NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js",
+  "public/NiceAdmin/assets/vendor/tinymce/tinymce.min.js",
+ "public/NiceAdmin/assets/vendor/php-email-form/validate.js",
+ "public/NiceAdmin/assets/vendor/php-email-form/validate.js",
+  "public/NiceAdmin/assets/js/main.js",
+   "public/NiceAdmin/assets/img/apple-touch-icon.png",
+  "public/NiceAdmin/assets/img/favicon.png",
+   "public/NiceAdmin/assets/css/style.css",
+   "public/NiceAdmin/assets/vendor/apexcharts/apexcharts.css
+",
+"public/NiceAdmin/assets/img/profile-img.jpg",
+"public/NiceAdmin/assets/vendor/simple-datatables/style.css",
+"public/NiceAdmin/assets/vendor/boxicons/css/animations.css",
+"public/NiceAdmin/assets/vendor/boxicons/css/boxicons.css",
+"public/NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css",
+"public/NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.scss",
+  
+  
 
-    @keyframes sk-scaleout {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-      }
-
-      100% {
-        -webkit-transform: scale(1.0);
-        transform: scale(1.0);
-        opacity: 0;
-      }
-    }
-  </style>
-  {{-- <script defer="defer" src="main.js"></script> --}}
-  @vite(['resources/sass/app.scss',
-   'public/dash/main.js',
    
-  'resources/js/app.js'])
+    'resources/js/app.js'])
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  
 </head>
+<body>
+  <header id="header" class="header fixed-top d-flex align-items-center">
 
-<body class="app">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
 
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
 
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
 
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
 
+        <li class="nav-item dropdown">
 
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
 
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-  <script>
-    window.addEventListener('load', function load() {
-      const loader = document.getElementById('loader');
-      setTimeout(function () {
-        loader.classList.add('fadeOut');
-      }, 300);
-    });
-  </script>
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Lorem Ipsum</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>30 min. ago</p>
+              </div>
+            </li>
 
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
+            <li class="notification-item">
+              <i class="bi bi-x-circle text-danger"></i>
+              <div>
+                <h4>Atque rerum nesciunt</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>1 hr. ago</p>
+              </div>
+            </li>
 
-  <div>
-    <!-- #Left Sidebar ==================== -->
-    <div class="sidebar">
-      <div class="sidebar-inner">
-        <!-- ### $Sidebar Header ### -->
-        <div class="sidebar-logo">
-          <div class="peers ai-c fxw-nw">
-            <div class="peer peer-greed">
-              <a class="sidebar-link td-n" href="index.html">
-                <div class="peers ai-c fxw-nw">
-                  <div class="peer">
-                    <div class="logo">
-                      <img src="assets/static/images/logo.png" alt="">
-                    </div>
-                  </div>
-                  <div class="peer peer-greed">
-                    <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
-                  </div>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Sit rerum fuga</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>2 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">3</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have 3 new messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>Maria Hudson</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>4 hrs. ago</p>
                 </div>
               </a>
-            </div>
-            <div class="peer">
-              <div class="mobile-toggle sidebar-toggle">
-                <a href="" class="td-n">
-                  <i class="ti-arrow-circle-left"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-        <!-- ### $Sidebar Menu ### -->
-        <ul class="sidebar-menu scrollable pos-r">
-          <li class="nav-item mT-30 actived">
-            <a class="sidebar-link" href={{route('admin.dashboard');}}>
-              <span class="icon-holder">
-                <i class="c-blue-500 ti-home"></i>
-              </span>
-              <span class="title">Dashboard</span>
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>Anna Nelson</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>6 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>David Muldon</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>8 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kevin Anderson</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href={{route('admin.dashboard')}}>
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+
+      {{-- start of properties --}}
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-house"></i><span>Properties</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href={{route('admin.createlisting')}}>
+            <span>Create Listing</span>
             </a>
           </li>
-         
-          <li class="nav-item dropdown">
-            <a class="dropdown-toggle" href="javascript:void(0);">
-              <span class="icon-holder">
-                <i class="c-orange-500 ti-layout-list-thumb"></i>
-              </span>
-              <span class="title">Properties</span>
-              <span class="arrow">
-                <i class="ti-angle-right"></i>
-              </span>
+          <li>
+            <a href={{route('all-listings')}}>
+             <span>Show Listing</span>
             </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="sidebar-link" href={{route('admin.createlisting')}}>Create Listing</a>
-              </li>
-              <li>
-                <a class="sidebar-link" href={{route('all-listings')}}>Show All Listings</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="dropdown-toggle" href="javascript:void(0);">
-              <span class="icon-holder">
-                <i class="c-purple-500 ti-map"></i>
-              </span>
-            
-              <span class="title">Multiple Levels</span>
-              <span class="arrow">
-                <i class="ti-angle-right"></i>
-              </span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="nav-item dropdown">
-                <a href="javascript:void(0);">
-                  <span>Menu Item</span>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="javascript:void(0);">
-                  <span>Menu Item</span>
-                  <span class="arrow">
-                    <i class="ti-angle-right"></i>
-                  </span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="javascript:void(0);">Menu Item</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">Menu Item</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </li>
         </ul>
-      </div>
-    </div>
+      </li><!-- End Tables Nav -->
 
-    <!-- #Main ============================ -->
-    <div class="page-container">
-      <!-- ### $Topbar ### -->
-      <div class="header navbar">
-        <div class="header-container">
-          <ul class="nav-left">
-            <li>
-              <a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);">
-                <i class="ti-menu"></i>
-              </a>
-            </li>
-            <li class="search-box">
-              <a class="search-toggle no-pdd-right" href="javascript:void(0);">
-                <i class="search-icon ti-search pdd-right-10"></i>
-                <i class="search-icon-close ti-close pdd-right-10"></i>
-              </a>
-            </li>
-            <li class="search-input">
-              <input class="form-control" type="text" placeholder="Search...">
-            </li>
-          </ul>
-          <ul class="nav-right">
-            <li class="notifications dropdown">
-              <span class="counter bgc-red">3</span>
-              <a href="" class="dropdown-toggle no-after" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="ti-bell"></i>
-              </a>
+     
 
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li class="pX-20 pY-15 bdB">
-                  <i class="ti-bell pR-10"></i>
-                  <span class="fsz-sm fw-600 c-grey-900">Notifications</span>
-                </li>
-                <li>
-                  <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <span>
-                            <span class="fw-500">John Doe</span>
-                            <span class="c-grey-600">liked your <span class="text-dark">post</span>
-                            </span>
-                          </span>
-                          <p class="m-0">
-                            <small class="fsz-xs">5 mins ago</small>
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <span>
-                            <span class="fw-500">Moo Doe</span>
-                            <span class="c-grey-600">liked your <span class="text-dark">cover image</span>
-                            </span>
-                          </span>
-                          <p class="m-0">
-                            <small class="fsz-xs">7 mins ago</small>
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <span>
-                            <span class="fw-500">Lee Doe</span>
-                            <span class="c-grey-600">commented on your <span class="text-dark">video</span>
-                            </span>
-                          </span>
-                          <p class="m-0">
-                            <small class="fsz-xs">10 mins ago</small>
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="pX-20 pY-15 ta-c bdT">
-                  <span>
-                    <a href="" class="c-grey-600 cH-blue fsz-sm td-n">View All Notifications <i
-                        class="ti-angle-right fsz-xs mL-10"></i></a>
-                  </span>
-                </li>
-              </ul>
-            </li>
-            <li class="notifications dropdown">
-              <span class="counter bgc-blue">3</span>
-              <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
-                <i class="ti-email"></i>
-              </a>
+      <li class="nav-heading">Pages</li>
 
-              <ul class="dropdown-menu">
-                <li class="pX-20 pY-15 bdB">
-                  <i class="ti-email pR-10"></i>
-                  <span class="fsz-sm fw-600 c-grey-900">Emails</span>
-                </li>
-                <li>
-                  <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <div>
-                            <div class="peers jc-sb fxw-nw mB-5">
-                              <div class="peer">
-                                <p class="fw-500 mB-0">John Doe</p>
-                              </div>
-                              <div class="peer">
-                                <small class="fsz-xs">5 mins ago</small>
-                              </div>
-                            </div>
-                            <span class="c-grey-600 fsz-sm">
-                              Want to create your own customized data generator for your app...
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <div>
-                            <div class="peers jc-sb fxw-nw mB-5">
-                              <div class="peer">
-                                <p class="fw-500 mB-0">Moo Doe</p>
-                              </div>
-                              <div class="peer">
-                                <small class="fsz-xs">15 mins ago</small>
-                              </div>
-                            </div>
-                            <span class="c-grey-600 fsz-sm">
-                              Want to create your own customized data generator for your app...
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                        <div class="peer mR-15">
-                          <img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt="">
-                        </div>
-                        <div class="peer peer-greed">
-                          <div>
-                            <div class="peers jc-sb fxw-nw mB-5">
-                              <div class="peer">
-                                <p class="fw-500 mB-0">Lee Doe</p>
-                              </div>
-                              <div class="peer">
-                                <small class="fsz-xs">25 mins ago</small>
-                              </div>
-                            </div>
-                            <span class="c-grey-600 fsz-sm">
-                              Want to create your own customized data generator for your app...
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="pX-20 pY-15 ta-c bdT">
-                  <span>
-                    <a href="email.html" class="c-grey-600 cH-blue fsz-sm td-n">View All Email <i
-                        class="fs-xs ti-angle-right mL-10"></i></a>
-                  </span>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-bs-toggle="dropdown">
-                <div class="peer mR-10">
-                  <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
-                </div>
-                <div class="peer">
-                  <span class="fsz-sm c-grey-900">John Doe</span>
-                </div>
-              </a>
-              <ul class="dropdown-menu fsz-sm">
-                <li>
-                  <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                    <i class="ti-settings mR-10"></i>
-                    <span>Setting</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                    <i class="ti-user mR-10"></i>
-                    <span>Profile</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                    <i class="ti-email mR-10"></i>
-                    <span>Messages</span>
-                  </a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                    <i class="ti-power-off mR-10"></i>
-                    <span>Logout</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users-profile.html">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-register.html">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    >
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
 
       <!-- ### $App Screen Content ### -->
-      <main class="main-content bgc-grey-100">
+      <main id="main" class="main">
        @yield('content')
       </main>
 
       <!-- ### $App Screen Footer ### -->
-      <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-        <span>Copyright © 2021 Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a>.
-          All rights reserved.</span>
-      </footer>
+       <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
     </div>
   </div>
 </body>

@@ -25,7 +25,7 @@ Route::prefix('admin')->group(function () {
     Route::prefix('listings')->group(function(){
          Route::get('/all-listings', [ListingController::class, 'index'])->name('all-listings');
         
-        Route::get('/{id}/edit-listing', [ListingController::class, 'edit'])->name('edit-listing');
+        Route::get('/{slug}/{id}/edit-listing', [ListingController::class, 'edit'])->name('admin.edit');
 
          Route::get('/create-listing', [ListingController::class, 'create'])->name('admin.createlisting');
 
