@@ -84,9 +84,36 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug , $id)
     {
-        //
+       request()->validate([
+        'address' => 'required',
+        'city' => 'required',
+        'zip' => 'required',
+        'state' => 'required',
+        'bedrooms' => 'required',
+        'baths' => 'required',
+        'sqft' => 'required'
+        
+    ]);
+      $listing = Listing::where(
+            ['slug' => $slug,
+             'id'=> $id
+             ])->first();
+  
+    $listing->address = $request->address;
+    $listing->address2 = $request->address2;
+    $listing->city = $request->city;
+    $listing->zip = $request->zip;
+    $listing->bedrooms = $request->bedrooms;
+    $listing->baths = $request->baths;
+    $listing->sqft = $request->sqft;
+    $listing->state = $request->state;
+    $listing->description = $request->description;
+    $listing->slug = Helper::slugify("{$request->address}-{$request->state}-{$request->city}");
+    $listing->save();
+   
+    return redirect("/admin/listings/{$listing->slug}/{$listing->id}/edit-listing")->with('success' , 'updating complete');
     }
 
     /**

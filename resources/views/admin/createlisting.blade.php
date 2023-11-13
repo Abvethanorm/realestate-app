@@ -89,6 +89,7 @@
                 </div>
                   @error('sqft')
                 <p>Yo stupit how many sqft </p>
+                    
                 @enderror
                 <label for="description" class="form-label">Description</label>
                 <textarea class="col-md-12" id="description" name="description">

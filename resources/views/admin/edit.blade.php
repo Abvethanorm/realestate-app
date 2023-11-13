@@ -6,8 +6,9 @@
               <h5 class="card-title">New Listing</h5>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3" method="POST"  action="{{route('admin.post')}}"  >
-                @csrf
+            <form class="row g-3" method="POST" action="{{ route('admin.update', ['slug' => $listing->slug, 'id' => $listing->id]) }}">
+    @csrf
+    @method('PUT')
                 <div class="col-12">
                   <label for="address" class="form-label">Address</label>
                   <input type="text" class="form-control" id="address"
@@ -54,7 +55,7 @@
                   <label for="zip" class="form-label">Zip</label>
                   <input type="text" class="form-control" id="zip"
                   name="zip"
-                  value="{{old('zip'), $listing->zip}}"
+                  value="{{old('zip', $listing->zip)}}"
                   >
                 
                 </div>
