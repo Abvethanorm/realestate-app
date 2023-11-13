@@ -11,10 +11,13 @@
                 <div class="col-12">
                   <label for="address" class="form-label">Address</label>
                   <input type="text" class="form-control" id="address"
-                  name="addess"
+                  name="address"
                    value="{{ old('address') }}"
                   placeholder="1234 Main St">
                 </div>
+                 @error('address')
+                <p>Yo stupit whats the addy</p>
+                @enderror
                 <div class="col-12">
                   <label for="address2" class="form-label">Address 2</label>
                   <input type="text" class="form-control" id="address2"
@@ -31,18 +34,31 @@
                    value="{{ old('city') }}"
                   >
                 </div>
+                  @error('city')
+                <p>Yo stupit whats the city</p>
+                @enderror
                 <div class="col-md-4">
                   <label for="state" class="form-label">State</label>
-                  <select id="inputState" class="form-select">
+                  <select id="state" class="form-select"
+                  name="state"
+                  >
                     <option selected="">New York</option>
                       <option>New Jersey</option>
                   </select>
                 </div>
+                  @error('state')
+                <p>Yo stupit whats the state</p>
+                @enderror
                 <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
-                </div>
+                  <label for="zip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="zip"
+                  name="zip"
+                  >
                 
+                </div>
+                  @error('zip')
+                <p>Yo stupit whats the zip</p>
+                @enderror
                   <div class="col-md-2">
                   <label for="bedrooms" class="form-label">Beds</label>
                   <input type="text" class="form-control" id="bedrooms"
@@ -50,6 +66,9 @@
                     value="{{ old('bedrooms') }}"
                    >
                   </div>
+                    @error('bedrooms')
+                <p>Yo stupit how many bedrooms </p>
+                @enderror
                   <div class="col-md-2">
                   <label for="baths" class="form-label">Baths</label>
                   <input type="text" class="form-control" id="baths"
@@ -57,6 +76,9 @@
                     value="{{ old('baths') }}"
                    >
                 </div>
+                  @error('baths')
+                <p>Yo stupit how many baths </p>
+                  @enderror
                   <div class="col-md-2">
                   <label for="sqft" class="form-label">SQFT</label>
                   <input type="text" class="form-control" id="sqft"
@@ -65,6 +87,9 @@
                    >
                    
                 </div>
+                  @error('sqft')
+                <p>Yo stupit how many sqft </p>
+                @enderror
                 <label for="description" class="form-label">Description</label>
                 <textarea class="col-md-12" id="description" name="description">
                 </textarea>

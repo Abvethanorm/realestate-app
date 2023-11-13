@@ -54,7 +54,7 @@ class ListingController extends Controller
     $listing->description = $request->description;
     $listing->slug = Helper::slugify("{$request->address}-{$request->state}-{$request->city}");
     $listing->save();
-    return 'it worked';
+   
     return redirect("/admin/listings/{$listing->slug}/{$listing->id}/edit-listing");
 }
 
