@@ -99,7 +99,13 @@
 
 
                   <button type="submit" class="btn btn-primary">Submit</button>
-                
+              <form method="POST" action="{{ route('admin.destroy', ['slug' => $listing->slug, 'id' => $listing->id]) }}" style="display: inline;">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this listing?')">Delete</button>
+</form>
+
+
                 </div>
               </form><!-- End Multi Columns Form -->
 

@@ -32,6 +32,11 @@ Route::prefix('admin')->group(function () {
          Route::post('/', [ListingController::class, 'store'])->name('admin.post');
 
           Route::put('/{slug}/{id}', [ListingController::class, 'update'])->name('admin.update');
+        
+       Route::delete('/{slug}/{id}', [ListingController::class, 'destroy'])->name('admin.destroy');
+
+
+
 
         
     });
