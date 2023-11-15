@@ -15,7 +15,9 @@ class ListingController extends Controller
      */
     public function index()
     {
-        return view('admin.showall');
+        $listings = Listing::paginate(1);
+        // return $listings;
+        return view('admin.showall', ['listings' => $listings]);
     }
 
     /**
