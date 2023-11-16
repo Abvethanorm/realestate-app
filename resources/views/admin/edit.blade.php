@@ -98,12 +98,13 @@
 
 
 
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              <form method="POST" action="{{ route('admin.destroy', ['slug' => $listing->slug, 'id' => $listing->id]) }}" style="display: inline;">
+                  <button type="submit" class="btn btn-primary " >Submit</button>
+             
+</form>
+ <form method="POST" action="{{ route('admin.destroy', ['slug' => $listing->slug, 'id' => $listing->id]) }}" style="width: 100%;" class="col-md-12" >
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this listing?')">Delete</button>
-</form>
+    <button type="submit" class="btn btn-danger col-md-12" style="width: 100%;" onclick="return confirm('Are you sure you want to delete this listing?')">Delete</button>
 
 
                 </div>

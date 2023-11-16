@@ -17,23 +17,23 @@ use App\Http\Controllers\Admin\ListingController;
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
-    })->name('admin.dashboard');
+    })->middleware(['auth', 'rolecheck'])->name('admin.dashboard');
 
    
    
   
     Route::prefix('listings')->group(function(){
-         Route::get('/all-listings', [ListingController::class, 'index'])->name('all-listings');
+         Route::get('/all-listings', [ListingController::class, 'index'])->middleware(['auth', 'rolecheck'])->name('all-listings');
         
-        Route::get('/{slug}/{id}/edit-listing', [ListingController::class, 'edit'])->name('admin.edit');
+        Route::get('/{slug}/{id}/edit-listing', [ListingController::class, 'edit'])->middleware(['auth', 'rolecheck'])->name('admin.edit');
 
-         Route::get('/create-listing', [ListingController::class, 'create'])->name('admin.createlisting');
+         Route::get('/create-listing', [ListingController::class, 'create'])->middleware(['auth', 'rolecheck'])->name('admin.createlisting');
 
-         Route::post('/', [ListingController::class, 'store'])->name('admin.post');
+         Route::post('/', [ListingController::class, 'store'])->middleware(['auth', 'rolecheck'])->name('admin.post');
 
-          Route::put('/{slug}/{id}', [ListingController::class, 'update'])->name('admin.update');
+          Route::put('/{slug}/{id}', [ListingController::class, 'update'])->middleware(['auth', 'rolecheck'])->name('admin.update');
         
-       Route::delete('/{slug}/{id}', [ListingController::class, 'destroy'])->name('admin.destroy');
+       Route::delete('/{slug}/{id}', [ListingController::class, 'destroy'])->middleware(['auth', 'rolecheck'])->name('admin.destroy');
 
 
 

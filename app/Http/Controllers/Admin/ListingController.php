@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -15,6 +16,7 @@ class ListingController extends Controller
      */
     public function index()
     {
+       
         $listings = Listing::paginate(1);
         // return $listings;
         return view('admin.showall', ['listings' => $listings]);
@@ -45,6 +47,7 @@ class ListingController extends Controller
     ]);
 
     $listing = new Listing();
+    $listing->user_id = auth()->user()->id;
     $listing->address = $request->address;
     $listing->address2 = $request->address2;
     $listing->city = $request->city;
