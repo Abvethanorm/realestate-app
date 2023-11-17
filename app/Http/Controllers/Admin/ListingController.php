@@ -17,7 +17,7 @@ class ListingController extends Controller
     public function index()
     {
        
-        $listings = Listing::paginate(1);
+        $listings = Listing::where('user_id', auth()->user()->id)->paginate(1);
         // return $listings;
         return view('admin.showall', ['listings' => $listings]);
     }
@@ -27,6 +27,7 @@ class ListingController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Listing::class);
         return view('admin.createlisting');
     }
 
@@ -35,6 +36,9 @@ class ListingController extends Controller
      */
    public function store(Request $request)
 {
+  $this->authorize('create', Listing::class);
+
+
     request()->validate([
         'address' => 'required',
         'city' => 'required',
@@ -76,13 +80,16 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($slug, $id)
+    public function edit($slug, $id, $listing )
     {
+    
+
         $listing = Listing::where(
             ['slug' => $slug,
              'id'=> $id
              ])->first();
-            
+    $this->authorize('update', $listing );
+
        return view('admin.edit', ['listing'=> $listing]);
     }
 
@@ -101,7 +108,7 @@ class ListingController extends Controller
         'sqft' => 'required'
         
     ]);
-      $listing = Listing::where(
+         $listing = Listing::where(
             ['slug' => $slug,
              'id'=> $id
              ])->first();
